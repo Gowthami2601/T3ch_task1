@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Task1_t3ch</title>
+<script type="text/javascript">
+  function validation(){
+    var fn=document.getElementById("fname").value;
+    var email=document.getElementById("mail").value;
+    var alpha=/^[a-z A-Z . /s ]{3,}$/;
+    var abc = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    var addr=document.getElementById("addr").value;
+    var city=document.getElementById("city").value;
+    var state=document.getElementById("state").value;
+    var pin=document.getElementById("pin").value;
+    var reg = /^[1-9]{1}[0-9]{5}$/;
+    var cname=document.getElementById("cname").value;
+    var ccnum=document.getElementById("ccnum").value;
+    var mastercard=/^(?:5[1-5][0-9]{14})$/;
+    var visa=/^4[0-9]{12}(?:[0-9]{3})?$/;
+    var discover=/^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
+    var americanexp=/^3[47][0-9]{13}$/
+    var cvv=document.getElementById("cvv").value;
+    if(fn=="" || fn=="null")
+    {
+      alert("Please enter your full name");
+      document.getElementById("fname").focus();
+      return false;
+    }
+    if(!fn.match(alpha)){
+      alert("Do not use any numbers and special charcter.Give more than two letters");
+      document.getElementById("fanme").focus();
+      return false;
+    }
+    if(email=="" || email=="null"){
+      alert("Please enter email address");
+      document.getElementById("mail").focus();
+      return false;
+    }
+    if(!email.match(abc))
+    {
+      alert("You have entered an invalid email address!");
+      document.getElementById("mail").focus();
+      return false;
+    }
+    if(addr=="" || addr=="null"){
+      alert("Please enter valid address");
+      document.getElementById("addr").focus();
+      return false;
+    }
+    if(city=="" || addr=="null"){
+      alert("Please enter valid city name");
+      document.getElementById("city").focus();
+      return false;
+    }
+    if(state=="" || state=="null"){
+      alert("Please enter valid state name");
+      document.getElementById("state").focus();
+      return false;
+    }
+    if(pin=="" || pin=="null"){
+      alert("Please enter pincode");
+      document.getElementById("pin").focus();
+      return false;
+    }
+    if(!pin.match(reg)){
+      alert("Please enter valid pincode");
+      document.getElementById("pin").focus();
+      return false;
+    }
+    if(cname=="" || cname=="null"){
+      alert("Please enter name on card");
+      document.getElementById("cname").focus();
+      return false;
+    }
+    if(ccnum.length!=16){
+      alert("Please enter valid card no");
+      document.getElementById("ccnum").focus();
+      return false;
+    }
+    if(!(ccnum.match("mastercard")) || (ccnum.match("visa")) || (ccnum.match("discover")) || (ccnum.match("americanexp"))){
+    }
+    else{
+      alert("Please enter valid card ");
+      document.getElementById("ccnum").focus();
+      return false;
+    }
+    if(cvv.length!=3){
+      alert("Please enter cvv no");
+      document.getElementById("cvv").focus();
+      return false;
+    }
+  }
+</script>
+<style>
+body {
+  font-family: TimeNewRoman;
+  font-size: 19px;
+  padding: 9px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+select{
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+#expmonth {
+        width: 150px;
+        height: 40px;
+        margin: 10px;
+    }
+#cvv {
+        width: 150px;
+        height: 30px;
+        margin: 10px;
+    }
+span.price {
+  float: right;
+  color: grey;
+}
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+</style>
+</head>
+<body >
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form onsubmit="return validation()" action="submit.html">
+      
+        <div class="row">
+          <div class="col-50">
+            <h3>Address</h3>
+            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Technovert Solutions">
+            <label for="mail"><i class="fa fa-envelope"></i> Email</label>
+            <input type="text" id="mail">
+            <label for="addr"><i class="fa fa-address-card-o"></i> Address</label>
+            <input type="text" id="addr" name="address" placeholder="D.no,street_name">
+            <label for="city"><i class="fa fa-institution"></i> City</label>
+            <input type="text" id="city" name="city" placeholder="City name">
+
+            <div class="row">
+              <div class="col-50">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" placeholder="State name">
+              </div>
+              <div class="col-50">
+                <label for="pin">Pincode</label>
+                <input type="text" id="pin" name="pin" placeholder="pincode">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-50">
+            <h3>Payment</h3>
+            <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+            <label for="cname">Name on Card</label>
+            <input type="text" id="cname" name="cardname">
+            <label for="ccnum">Credit card number</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="1111222233334444">
+            <label for="expmonth">Exp Month</label>
+            <select id="expmonth" name="expmonth">
+              <option value="Jan">01</option>
+              <option value="Feb">02</option>
+              <option value="Mar">03</option>
+              <option value="Apr">04</option>
+              <option value="May">05</option>
+              <option value="Jun">06</option>
+              <option value="Jul">07</option>
+              <option value="Aug">08</option>
+              <option value="Sep">09</option>
+              <option value="Oct">10</option>
+              <option value="Nov">11</option>
+              <option value="Dec">12</option>
+            </select>
+            <div class="row">
+              <div class="col-50">
+                <label for="expyear">Exp Year</label>
+                <select id="expyear" name="expyear" placeholder="20--">
+                  <option value="2020">2020</option>
+                  <option value="2021">2021</option>
+                  <option value="2022">2022</option>
+                  <option value="2023">2023</option>
+                  <option value="2024">2024</option>
+                  <option value="2025">2025</option>
+                  <option value="2026">2026</option>
+                  <option value="2027">2027</option>
+                  <option value="2028">2028</option>
+                  <option value="2029">2029</option>
+                  <option value="2030">2030</option>
+                  <option value="2031">2031</option>
+                  <option value="2032">2032</option>
+                  <option value="2033">2033</option>
+                  <option value="2034">2034</option>
+                  <option value="2035">2035</option>
+                  <option value="2036">2036</option>
+                  <option value="2037">2037</option>
+                  <option value="2038">2038</option>
+                  <option value="2039">2039</option>
+                  <option value="2040">2040</option>
+                  <option value="2041">2041</option>
+                  <option value="2042">2042</option>
+                  <option value="2043">2043</option>
+                  <option value="2044">2044</option>
+                  <option value="2045">2045</option>
+                  <option value="2046">2046</option>
+                  <option value="2047">2047</option>
+                  <option value="2048">2048</option>
+                  <option value="2049">2049</option>
+                  <option value="2050">2050</option>
+              </select>
+              </div>
+              <div class="col-50">
+                <label for="cvv">CVV</label>
+                <input type="password" id="cvv" name="cvv">
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <input type="submit" value="Done" class="btn">
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
